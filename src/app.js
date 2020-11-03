@@ -1,16 +1,9 @@
 const express = require('express')
+const weatherRouter = require('./weather/weatherRoutes')
 
 const app = express()
 
 app.use(express.json())
-
-// Demo route
-app.get('/', (req, res) => {
-	try {
-		res.send({ Name: 'SUDO', moto: 'Just Sudo it.....' })
-	} catch (error) {
-		res.status(400).send(error)
-	}
-})
+app.use(weatherRouter)
 
 module.exports = app
