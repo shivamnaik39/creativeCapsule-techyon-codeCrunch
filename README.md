@@ -2,18 +2,18 @@
 
 Team Name: Sudo
 
-Team Member 1: Kedar Devasthali : kedard249.kd@gmail.com: 9021932268
+Team Member 1: Kedar Devasthali : kedard249.kd@gmail.com : 9021932268
 
-Team Member 2: Shashank Shetti : shashankgovindshetti9@gmail.com: 8805846729
+Team Member 2: Shashank Shetti : shashankgovindshetti9@gmail.com : 8805846729
 
-Team Member 3: Shivam Naik : shivamnaik8239@gmail.com: 8669087346
+Team Member 3: Shivam Naik : shivamnaik8239@gmail.com : 8669087346
 
 ## Project Details
 
-Hosted URL: <url>
+Hosted URL: sudocodecrunch.herokuapp.com
 
 Tech Stack used:
-<details-of-tech-stack-used>
+NodeJS and Express
 
 Note/Comments:
 <any-other-information-you-need-to-add>
