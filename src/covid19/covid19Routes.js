@@ -30,11 +30,8 @@ router.get('/covid/country/code/:country_code', async (req, res) => {
 		const covidData = await Covid19Service.getCovidReportByCountryCode(
 			countryCode
 		)
-		if (covidData.cod === '404')
-			return res.status(404).send({
-				status: 404,
-				message: 'No Record found',
-			})
+		// If data not found based on counrry return 404 with message
+		if (covidData.status === 404) return res.status(404).send(covidData)
 		res.status(200).send(covidData)
 	} catch (error) {
 		res.status(400).send(error)
@@ -43,7 +40,6 @@ router.get('/covid/country/code/:country_code', async (req, res) => {
 
 router.get('/covid/country/search', async (req, res) => {
 	try {
-		
 		// Initialised variable to hold covid data
 		let covidData
 
@@ -52,10 +48,8 @@ router.get('/covid/country/search', async (req, res) => {
 			// Get country_name from the search query
 			const { searchText } = req.query
 
-		covidData = await Covid19Service.getCovidReportByCountryName(searchText)
-		}
-
-		else if (req.query.searchText) {
+			covidData = await Covid19Service.getCovidReportByCountryName(searchText)
+		} else if (req.query.searchText) {
 			// Get the country code from the search query
 			const { searchText } = req.query
 
@@ -63,11 +57,8 @@ router.get('/covid/country/search', async (req, res) => {
 			covidData = await Covid19Service.getCovidReportByCountryCode(searchText)
 		}
 
-		if (covidData.cod === '404')
-			return res.status(404).send({
-				status: 404,
-				message: 'No Record found',
-			})
+		// If data not found based on counrry return 404 with message
+		if (covidData.status === 404) return res.status(404).send(covidData)
 		res.status(200).send(covidData)
 	} catch (error) {
 		res.status(400).send(error)
