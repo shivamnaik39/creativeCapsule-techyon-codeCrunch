@@ -18,14 +18,15 @@ Tech Stack used:
 NodeJS and Express
 
 Note/Comments:
-<any-other-information-you-need-to-add>
+
+- For Section 1 (Task 3) PLEASE CHECK IT FIRST USING MANUALLY AS IN POSTMAN COLLECTION RUNNING YOU MIGHT GET AN ERROR
 
 ## Tasks Status:
 
-- Task 1: IN-PROGRESS
+- Task 1: DONE
 - Task 2: IN-PROGRESS
 - Task 3: DONE
-- Task 4: IN-PROGRESS
+- Task 4: DONE
 - Task 5: NEW
 - Task 6: NEW
 - Task 7: NEW
