@@ -24,9 +24,13 @@ Note/Comments:
 ## Tasks Status:
 
 - Task 1: DONE
-- Task 2: IN-PROGRESS
+- Task 2: DONE
 - Task 3: DONE
 - Task 4: DONE
-- Task 5: NEW
-- Task 6: NEW
-- Task 7: NEW
+- Task 5: IN-PROGRESS
+- Task 6: IN-PROGRESS
+- Task 7: DONE
+- Task 8: DONE
+- Task 9: DONE
+- Task 10: DONE
+- Task 11: DONE
