@@ -8,6 +8,8 @@ const covid19 = require('./covid19/covid19Routes')
 
 // const Country = require('./model/Country')
 // const Twitter = require('./model/Twitter')
+const Country = require('./model/Country')
+const Twitter = require('./model/Twitter')
 
 const app = express()
 
@@ -19,6 +21,8 @@ app.use(weatherRouter)
 
 // Use the Covid19 Routes
 app.use(covid19)
+app.use(Country)
+app.use(Twitter)
 
 // export the app to index file
 module.exports = app
