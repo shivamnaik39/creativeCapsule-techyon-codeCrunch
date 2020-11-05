@@ -3,34 +3,43 @@ const routes=express.Router()
 const apicall=require('./CountryData')
 const request=require('request')
 routes.get('/country/name/:country_name',(req,res)=>{
-    apicall.callApi(function(response){
-        //console.log(JSON.stringify(response));
-        const Country= response   
-        
-    const results=[]
-    for (var i=0 ; i < Country.length ; i++)
-{
-    if (Country[i].name == req.params.country_name.charAt(0).toUpperCase()+req.params.country_name.slice(1)) {
-        console.log(Country[i]);
-        ret={
-            name: Country[i].name,
-         alpha2Code: Country[i].alpha2Code,
-    alpha3Code:Country[i].alpha3Code,
-    capital: Country[i].capital,
-    region: Country[i].region,
-    population: Country[i].population,
-    flag: Country[i].flag,
-    totalLanguages: Country[i].languages.length,
-    totalCurrencies: Country[i].currencies.length
-        }
-        res.status(200).send({ret});
-        return
-    }
-
-}
-res.status(404).send('Could not find country')
+    _EXTERNAL_URL="https://restcountries.eu/rest/v2/name/"+req.params.country_name
+    const countryname=()=>{
+        request(_EXTERNAL_URL, { json: true }, (err, body) => {
+            if (err) { 
+                res.status(404).send('Could not find country')
+                return;
+             }
+            const Country=body
+            
+            for(var i=0; i<Country.body.length;i++) {
+                console.log(req.params.country_name.charAt(0).toUpperCase+req.params.country_name.slice(1))
+                if(Country.body[i].name==req.params.country_name.charAt(0).toUpperCase()+req.params.country_name.slice(1)){
+                    console.log('in if')
+                ret={
+                    name: body.body[i].name,
+                    alpha2Code: Country.body[i].alpha2Code,
+                    alpha3Code:Country.body[i].alpha3Code,
+                    capital: Country.body[i].capital,
+                    region: Country.body[i].region,
+                    population: Country.body[i].population,
+                    flag: Country.body[i].flag,
+                    totalLanguages: Country.body[i].languages.length,
+                    totalCurrencies: Country.body[i].currencies.length
     
-})})
+                }
+                console.log(ret)
+                res.status(200).send(ret);
+                break
+            }
+            } 
+            
+    })
+}
+countryname.call(function(response){
+
+})
+})
 routes.get('/country/code/:country_code',async (req,res)=>{
     //console.log(Country)
     const results=[]
@@ -79,9 +88,9 @@ routes.get('/country/search',(req,res)=>{
         const Country= response
     for (var i=0 ; i < Country.length ; i++)
 {
-    //console.log(Country[i].name,req.query.searchText)
-    if (Country[i].name == req.query.searchText || Country[i].alpha2Code== req.query.searchText || Country[i].alpha3Code== req.query.searchText || Country[i].callingCodes==req.query.searchText||Country[i].capital==req.query.searchText) {
-        console.log('IN if')
+    console.log(Country[i].numericCode,req.query.searchText)
+    if (Country[i].name === req.query.searchText || Country[i].alpha2Code === req.query.searchText || Country[i].alpha3Code=== req.query.searchText || Country[i].callingCodes[0] === req.query.searchText||Country[i].capital===req.query.searchText) {
+        console.log(Country[i]);
         ret={
         name: Country[i].name,
          alpha2Code: Country[i].alpha2Code,
@@ -92,7 +101,8 @@ routes.get('/country/search',(req,res)=>{
         flag: Country[i].flag,
         totalLanguages: Country[i].languages.length,
         totalCurrencies: Country[i].currencies.length,
-        totalTimezones: Country[i].timezones.length
+        totalTimezones: Country[i].timezones.length,
+        
         }
         console.log(ret)
         results.push(ret)
@@ -100,7 +110,7 @@ routes.get('/country/search',(req,res)=>{
     }
 
 }
-if(results.length >0){
+if(results.length>0){
 res.status(200).send(results)
 }
 else{
