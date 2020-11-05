@@ -59,9 +59,9 @@ class Covid19Service {
 
 	// Get latest covid19 report for a given country Code  .
 	static getCovidReportByCountryCode(countryCode) {
-		// const url =
-		// return getData(url)
-	}
+		const url = `${URL}/code?code=${encodeURIComponent(countryCode)}&format=json`
+		return getData(url)    
+	}          
 }
 
 // export the Covid19Service  to the Covid19 Router
