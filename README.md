@@ -10,7 +10,7 @@ Team Member 3: Shivam Naik : shivamnaik8239@gmail.com : 8669087346
 
 ## Project Details
 
-Hosted URL: sudocodecrunch.herokuapp.com
+Hosted URL: https://sudocodecrunch.herokuapp.com/
 
 Tech Stack used:
 NodeJS and Express
