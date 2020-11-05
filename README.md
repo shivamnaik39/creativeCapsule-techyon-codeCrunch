@@ -2,6 +2,8 @@
 
 Team Name: Sudo
 
+College Name: Goa College of Engineering
+
 Team Member 1: Kedar Devasthali : kedard249.kd@gmail.com : 9021932268
 
 Team Member 2: Shashank Shetti : shashankgovindshetti9@gmail.com : 8805846729
@@ -20,10 +22,10 @@ Note/Comments:
 
 ## Tasks Status:
 
-- Task 1: NEW/IN-PROGRESS/DONE
-- Task 2: NEW/IN-PROGRESS/DONE
-- Task 3: NEW/IN-PROGRESS/DONE
-- Task 4: NEW/IN-PROGRESS/DONE
-- Task 5: NEW/IN-PROGRESS/DONE
-- Task 6: NEW/IN-PROGRESS/DONE
-- Task 7: NEW/IN-PROGRESS/DONE
+- Task 1: IN-PROGRESS
+- Task 2: IN-PROGRESS
+- Task 3: DONE
+- Task 4: IN-PROGRESS
+- Task 5: NEW
+- Task 6: NEW
+- Task 7: NEW
