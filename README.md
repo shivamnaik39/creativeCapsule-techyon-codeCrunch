@@ -2,6 +2,8 @@
 
 Team Name: Sudo
 
+College Name: Goa College of Engineering
+
 Team Member 1: Kedar Devasthali : kedard249.kd@gmail.com : 9021932268
 
 Team Member 2: Shashank Shetti : shashankgovindshetti9@gmail.com : 8805846729
@@ -16,14 +18,15 @@ Tech Stack used:
 NodeJS and Express
 
 Note/Comments:
-<any-other-information-you-need-to-add>
+
+- For Section 1 (Task 3) PLEASE CHECK IT FIRST USING MANUALLY AS IN POSTMAN COLLECTION RUNNING YOU MIGHT GET AN ERROR
 
 ## Tasks Status:
 
-- Task 1: NEW/IN-PROGRESS/DONE
-- Task 2: NEW/IN-PROGRESS/DONE
-- Task 3: NEW/IN-PROGRESS/DONE
-- Task 4: NEW/IN-PROGRESS/DONE
-- Task 5: NEW/IN-PROGRESS/DONE
-- Task 6: NEW/IN-PROGRESS/DONE
-- Task 7: NEW/IN-PROGRESS/DONE
+- Task 1: DONE
+- Task 2: IN-PROGRESS
+- Task 3: DONE
+- Task 4: DONE
+- Task 5: NEW
+- Task 6: NEW
+- Task 7: NEW
