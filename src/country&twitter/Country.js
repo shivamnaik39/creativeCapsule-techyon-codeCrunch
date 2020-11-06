@@ -46,7 +46,7 @@ routes.get('/country/name/:country_name', (req, res) => {
 		}
 		countryname.call(function (response) {})
 	} catch (e) {
-		throw e
+		res.status(400).send('bad request')
 	}
 })
 routes.get('/country/code/:country_code', async (req, res) => {
@@ -83,7 +83,7 @@ routes.get('/country/code/:country_code', async (req, res) => {
 		}
 		countrycode.call(function (response) {})
 	} catch (error) {
-		throw error
+		res.status(400).send('bad request')
 	}
 })
 routes.get('/country/search', (req, res) => {
@@ -127,7 +127,7 @@ routes.get('/country/search', (req, res) => {
 		}
 		countrycode.call(function (response) {})
 	} catch (error) {
-		throw error
+		res.status(400).send('bad request')
 	}
 })
 module.exports = routes
