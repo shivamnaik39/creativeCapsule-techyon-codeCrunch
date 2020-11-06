@@ -46,10 +46,10 @@ routes.get('/country/name/:country_name', (req, res) => {
 		}
 		countryname.call(function (response) {})
 	} catch (e) {
-		res.status(400).send('bad request')
+		res.status(400).send(e)
 	}
 })
-routes.get('/country/code/:country_code', async (req, res) => {
+routes.get('/country/code/:country_code', (req, res) => {
 	//console.log(Country)
 	const results = []
 
@@ -63,27 +63,33 @@ routes.get('/country/code/:country_code', async (req, res) => {
 					return
 				}
 				//console.log(body);
-				const Country = body
-				console.log(Country.body)
-				ret = {
-					name: Country.body.name,
-					alpha2Code: Country.body.alpha2Code,
-					alpha3Code: Country.body.alpha3Code,
-					capital: Country.body.capital,
-					region: Country.body.region,
-					population: Country.body.population,
-					flag: Country.body.flag,
-					totalLanguages: Country.body.languages.length,
-					totalCurrencies: Country.body.currencies.length,
-					totalTimezones: Country.body.timezones.length,
+				else if (body.body.status != 400) {
+					console.log(body.body.status)
+					const Country = body
+					console.log(Country.body)
+					ret = {
+						name: Country.body.name,
+						alpha2Code: Country.body.alpha2Code,
+						alpha3Code: Country.body.alpha3Code,
+						capital: Country.body.capital,
+						region: Country.body.region,
+						population: Country.body.population,
+						flag: Country.body.flag,
+						totalLanguages: Country.body.languages.length,
+						totalCurrencies: Country.body.currencies.length,
+						totalTimezones: Country.body.timezones.length,
+					}
+					res.status(200).send(ret)
+					return
+				} else {
+					res.status(400).send('Bad Request')
+					return
 				}
-				res.status(200).send(ret)
-				return
 			})
 		}
 		countrycode.call(function (response) {})
 	} catch (error) {
-		res.status(400).send('bad request')
+		res.status(400).send(error)
 	}
 })
 routes.get('/country/search', (req, res) => {
@@ -127,7 +133,7 @@ routes.get('/country/search', (req, res) => {
 		}
 		countrycode.call(function (response) {})
 	} catch (error) {
-		res.status(400).send('bad request')
+		res.status(400).send(error)
 	}
 })
 module.exports = routes

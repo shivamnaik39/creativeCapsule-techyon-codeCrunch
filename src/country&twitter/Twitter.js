@@ -17,6 +17,9 @@ routes.get('/twitter/user/:username', (req, res) => {
 		'statuses/user_timeline',
 		{ screen_name: req.params.username, count: 10 },
 		function (err, data, response) {
+			if (err) {
+				res.status(404).send(err)
+			}
 			result = {
 				user_name: data[0].user.name,
 				user_screen_name: data[0].user.screen_name,
@@ -48,6 +51,9 @@ routes.get('/twitter/hashtag/:hashtag', (req, res) => {
 		response
 	) {
 		//console.log(data.statuses)
+		if (err) {
+			res.status(404).send('NOT found')
+		}
 		result = [
 			{
 				user_screen_name: data.statuses[0].user.screen_name,
@@ -86,7 +92,7 @@ routes.get('/twitter/location', (req, res) => {
 	var stream = T.stream('statuses/filter', { locations: mylocation })
 	stream.on('tweet', function (tweet, err) {
 		if (err) {
-			throw err
+			res.status(404).send(err)
 		}
 
 		twitt = {
