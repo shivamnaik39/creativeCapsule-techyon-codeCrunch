@@ -39,9 +39,10 @@ routes.get('/country/name/:country_name', (req, res) => {
 						}
 						console.log(ret)
 						res.status(200).send(ret)
-						break
+						return
 					}
 				}
+				res.status(400).send(body.body)
 			})
 		}
 		countryname.call(function (response) {})
@@ -82,8 +83,7 @@ routes.get('/country/code/:country_code', (req, res) => {
 					res.status(200).send(ret)
 					return
 				} else {
-					res.status(400).send('Bad Request')
-					return
+					res.status(400).send(body.body)
 				}
 			})
 		}
@@ -107,11 +107,15 @@ routes.get('/country/search', (req, res) => {
 				const Country = body.body
 				for (var i = 0; i < Country.length; i++) {
 					if (
-						Country[i].name === req.query.searchText ||
-						Country[i].alpha2Code === req.query.searchText ||
-						Country[i].alpha3Code === req.query.searchText ||
+						Country[i].name ===
+							req.query.searchText.charAt(0).toUpperCase() +
+								req.query.searchText.slice(1) ||
+						Country[i].alpha2Code === req.query.searchText.toUpperCase() ||
+						Country[i].alpha3Code === req.query.searchText.toUpperCase() ||
 						Country[i].callingCodes[0] === req.query.searchText ||
-						Country[i].capital === req.query.searchText
+						Country[i].capital ===
+							req.query.searchText.charAt(0).toUpperCase() +
+								req.query.searchText.slice(1)
 					) {
 						console.log(Country[i])
 						ret = {
@@ -129,6 +133,7 @@ routes.get('/country/search', (req, res) => {
 						return
 					}
 				}
+				res.status(400).send({ status: 400, message: 'Bad request' })
 			})
 		}
 		countrycode.call(function (response) {})
