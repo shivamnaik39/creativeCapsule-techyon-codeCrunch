@@ -19,8 +19,6 @@ NodeJS and Express
 
 Note/Comments:
 
-- For Section 1 (Task 3) PLEASE CHECK IT FIRST USING MANUALLY AS IN POSTMAN COLLECTION RUNNING YOU MIGHT GET AN ERROR
-
 ## Tasks Status:
 
 - Task 1: DONE
