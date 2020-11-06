@@ -19,6 +19,8 @@ NodeJS and Express
 
 Note/Comments:
 
+- The final task (Task 11) may take some times due to the size of the data and operation performed its because of twitter API
+
 ## Tasks Status:
 
 - Task 1: DONE
