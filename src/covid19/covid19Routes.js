@@ -46,16 +46,17 @@ router.get('/covid/country/search', async (req, res) => {
 		
 		// Initialised variable to hold covid data
 		let covidData
+		let temp= req.query.searchText
 
 		// If countryname   is in search query
-		if (req.query.searchText) {
-			// Get country_name from the search query
-			const { searchText } = req.query
-
+		if (temp.length>3) {   
+			// Get country_name from the search query    
+			const { searchText } = req.query  
+			                      
 		covidData = await Covid19Service.getCovidReportByCountryName(searchText)
 		}
 
-		else if (req.query.searchText) {
+		else{
 			// Get the country code from the search query
 			const { searchText } = req.query
 
