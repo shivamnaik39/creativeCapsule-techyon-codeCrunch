@@ -8,8 +8,8 @@ const covid19 = require('./covid19/covid19Routes')
 
 // const Country = require('./model/Country')
 // const Twitter = require('./model/Twitter')
-const Country = require('./model/Country')
-const Twitter = require('./model/Twitter')
+const Country = require('./country&twitter/Country')
+const Twitter = require('./country&twitter/Twitter')
 
 const app = express()
 
@@ -23,6 +23,12 @@ app.use(weatherRouter)
 app.use(covid19)
 app.use(Country)
 app.use(Twitter)
+
+app.use(function (e, req, res, next) {
+	if (e.message === 'Bad request') {
+		res.status(400).json({ error: { msg: e.message, stack: e.stack } })
+	}
+})
 
 // export the app to index file
 module.exports = app
